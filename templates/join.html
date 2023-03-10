@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+{% block content %}
+    <h1>Join Today!</h1><br>
+
+    <form method="POST" action="{% url 'join' %}" >
+    {% csrf_token %}
+      <div class="form-group">
+    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="First name" name="fname">
+  </div>
+        <br><br>
+        <div class="form-group">
+    <input type="text" class="form-control" aria-describedby="emailHelp" placeholder="Last name" name="lname">
+  </div>
+        <br><br>
+  <div class="form-group">
+    <input type="text" class="form-control"  aria-describedby="emailHelp" placeholder="Age" name="age">
+  </div>
+        <br><br>
+        <div class="form-group">
+    <input type="email" class="form-control" placeholder="Email" name="email">
+  </div>
+
+        <br><br>
+  <div class="form-group">
+    <input type="password" class="form-control"placeholder="Password" name="passwd">
+  </div>
+        <br><br>
+
+  <button type="submit" class="btn btn-success">Sign up</button>
+</form>
+{% endblock %}
+
+</body>
+</html>
